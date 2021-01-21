@@ -270,6 +270,13 @@ while input_start_key == '':
                             continue  # 【退出对该jav的整理】
                         # 默认用第一个搜索结果
                         url_on_web = list_fit_results[0]
+                        # 检测是否有完全匹配的结果
+                        if len(list_fit_results)>1:
+                            for i in list_fit_results:
+                                url_end = i.split('/')[-1].upper()
+                                if url_end==jav.car:
+                                    url_on_web=i
+                                    break
                         # print('最终链接：', url_on_web)
                         # print('最终list：', list_fit_results)
                         if len(list_fit_results) > 1:
